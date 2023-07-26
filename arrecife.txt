@@ -1,0 +1,12 @@
+Magikarp;1;10;rojo
+Gyarados;25;100;azul
+Vaporeon;15;20;azul
+Palkia;20;300;blanco
+Empoleon;10;40;negro
+Slowbro;5;30;rosa
+Lotad;2;4;verde
+Feraligatr;10;40;azul
+Politoed;10;25;verde
+Cloyster;3;40;morado
+Rotomlavado;10;30;naranja
+Totodile;10;15;azul

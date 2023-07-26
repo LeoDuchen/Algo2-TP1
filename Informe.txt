@@ -1,0 +1,43 @@
+-El programa simula un traslado de Pokémon desde el arrecife que rodea las Islas Espuma a un acuario en Ciudad Celeste. Lo primero que hace el programa es crear un arrecife, reservando memoria para el mismo. Luego, abre el archivo "arrecife.txt" y guarda los datos del archivo en el vector de arrecife creado. Después de todo esto, crea un acuario y reserva memoria para el mismo. Si cualquiera de los dos falla, se libera la memoria. Ahora inicia el traslado de los Pokémon. Primero, se fija que la cantidad a seleccionar no sea 0, devuelve error si lo es. Segundo, recorre el vector arrecife para ver si hay la cantidad suficiente de Pokémon que cumplan con la condición dada. Las condiciones para seleccionar Pokémon pueden variar. Si la cantidad de Pokémon es la suficiente, iniciara el traslado al acuario. Recorre el vector arrecife (de nuevo) y cuando encuentra un Pokémon que cumpla la condición, lo mueve y aumenta la memoria del acuario. Al terminar de trasladar, muestra los Pokémon que quedaron en el arrecife. Hace este mismo proceso 4 veces más. Crea el archivo "acuario.txt" y guarda los Pokémon que contiene el acuario. Al final, libera la memoria del arrecife y del acuario.
+
+-Lo primero que se necesita para compilar este programa es tener una computadora con un sistema operativo Linux, por ejemplo: Ubuntu. Abrir la Terminal. En la Terminal se puede hacer varias cosas, pero nos centraremos en compilar y ejecutar el programa. Para esto, tenemos que fijarnos si el sistema operativo tiene el lenguaje C instalado. Normalmente no lo trae, así que para instalarlo hay que escribir lo siguiente en la terminal:
+
+	sudo apt install gcc
+
+Ahora que tenemos C instalado, podemos compilar el programa. Para eso hay que saber la ubicación de los archivos del programa. Digamos que esta en el escritorio. En la terminal escribes:
+
+	ls
+
+Esto es para saber donde estamos parados. Habra una lista con los nombres de los lugares a los que podemos acceder, una de ellas sera el escritorio. Escribes lo siguiente:
+
+	cd Escritorio
+
+O si lo tienes en inglés:
+
+	cd Desktop
+
+Bien, ahora si podemos compilar el programa. Con la siguiente línea lo compilas:
+
+	gcc *.c -Wall -Werror -Wconversion -std=c99 -o evento_pesca
+
+El "gcc" es el lenguaje C. El ".c" dice que compile todos los archivos que terminen en .c, y lo que esta al final es el nombre del archivo compilado.
+
+	./evento_pesca
+
+Así se compila y ejecuta un programa. Podemos usar Valgrind para ver si se perdio memoria. Si no tienes Valgrind, se puede instalar con la siguiente línea:
+
+	sudo apt-get install valgrind
+
+Lo probamos:
+
+	valgrind --leak-check=full --track-origins=yes --show-reachable=yes ./evento_pesca
+
+-Punteros: Los punteros apuntan a una dirección de memoria. En pesca_pokemon.c en el main línea 90 y 91 tengo un puntero a arrecife y otro a acuario, respectivamente.
+
+Aritmética de punteros: Son los operadores de los punteros. Lo uso en evento_pesca.c en la función trasladar_pokemon línea 85 para enviar la dirección de memoria de los Pokémon con la función seleccionar_pokemon.
+
+Punteros a funciones: Es la dirección de memoria de una función. Lo uso en evento_pesca.c en la función trasladar_pokemon línea 85 para que seleccione los Pokémon que cumplen la condición dada.
+
+Malloc: Reserva un bloque de memoria en el heap. Uso malloc en evento_pesca.c en la función crear_arrecife línea 14, donde reservo memoria para el arrecife. También lo uso en la línea 53.
+
+Realloc: Modifica el bloque de memoria. Se puede agrandar o achicar. Uso realloc en evento_pesca.c en la función crear_arrecife línea 32, donde aumento la memoria por cada Pokémon que halla.
