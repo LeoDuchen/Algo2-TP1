@@ -1,2 +1,3 @@
-# Algo2-TP1
-Primer trabajo práctico para Algoritmos y Programación II, FIUBA, 2C-2020
+# Trabajo Práctico 1 de Algoritmos y Programación II
+
+Trabajo Práctico 1 de Algoritmos y Programación II de FIUBA (Cátedra Méndez)
